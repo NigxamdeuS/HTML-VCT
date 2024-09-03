@@ -1,0 +1,644 @@
+/* すべてのページに適応される設定 /
+/ すべてのページに適応    ヘッダー /
+/ すべてのページに適応    ヒーロー /
+/すべてのページに適応    メイン /
+/すべてのページに適応    フッター */
+
+/* すべてのページに適応される設定 */
+* {
+	box-sizing: border-box;
+ }
+ body {
+	margin: 0;
+	padding: 0;
+	font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ms Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background-color: #ffffff;
+ }
+
+h1 {
+  margin: 0; padding: 0;
+  font-size: 20px;
+}
+
+a {	
+  text-decoration: none;
+  color: #ff0000;
+}
+
+nav {
+  margin: 0 0 0 auto;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+}
+  
+li {
+  margin: 0 0 0 0px;
+  font-size: 14px;
+}
+
+/* すべてのページに適応    ホームボディー */
+
+.rist{
+  display: grid;
+	text-align: center;
+}
+
+.mainli{
+	padding-top: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#laz img {
+	border-radius: 20px;
+  }
+
+.lisrc {
+  width: 100%; height: 100%;
+}
+
+@media screen and (max-width: 425px) {
+  .lisrc {
+    width: 90%; height: 100%;
+  }
+
+
+}
+
+.laz{
+  padding-top: 100px;
+}
+
+.osusume {
+  text-align: center;
+}
+
+.rist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30%, 1fr)); /* 10列のグリッドを作成 */
+  grid-gap: 0px; /* グリッド間の間隔 */}
+
+@media screen and (max-width: 500px) {
+  .rist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80%, 1fr)); /* 10列のグリッドを作成 */
+    grid-gap: 0px; /* グリッド間の間隔 */
+  }}
+
+
+
+/* すべてのページに適応    チームカルーセル */
+  .loop_wrap {
+    display: flex;
+    overflow: hidden;
+  }
+
+  .ul {
+    animation: loop 15s linear 1s infinite normal both;
+  }
+
+ 
+  .scrollist {
+    display: flex;
+    list-style: none;
+    margin: 0 auto; 
+  }
+
+  .pic {
+    width: calc(150vw / 10);
+    margin: 20px;
+}
+
+  .pic > img {
+    width: 100%;
+}
+  .slide-paused:hover .ul{
+    animation-play-state: paused;
+  }
+
+  @keyframes loop {
+    0% {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-200%);
+    }
+  }
+  
+  @keyframes loop2 {
+    0% {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-200%);
+    }
+  }
+
+  /*すべてのページに適応    フッター */
+
+  html {
+    font-family: sans-serif;
+  }
+  
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+  
+  a {
+    color: #000000;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #000;
+  }
+  
+  hr {
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer {
+    padding: 2rem;
+    font-size: 15px;
+    color: #ff0000;
+    background: #fff;
+  }
+  
+  .footer__navi-heading {
+    font-weight: 600;
+  }
+  
+  .footer__logo {
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+  
+  .footer__navi li {
+    margin-bottom: 0.75rem;
+  }
+  
+  .footer__social a {
+    display: inline-block;
+    width: 24px;
+    opacity: 0.7;
+  }
+  
+  .footer__social a:not(:last-child) {
+    margin-right: 16px;
+  }
+
+  /* すべてのページに適応    クロスヘア */
+.carousel {
+  margin-top: 100px;
+  width: auto;
+  height: 500px;
+  display: flex;    /* 子要素を横に並べる */
+  overflow: hidden; /* はみ出た部分は表示しない */
+  
+}
+/* カルーセル内の画像 */
+.carousel img {
+  margin: 0;
+  padding: 0;
+  display: block; /* imgタグの改行のすき間を消すため */
+}
+/* スクロールアニメーションのキーフレーム */
+@keyframes scroll {
+  /* 初期位置は1個目の画像が左端 */
+  0% { margin-left: 0; }      
+  /* 1個分左の位置に進めて2個目の画像を左端にする */
+  20% { margin-left: -150%; }
+  /* 少しの間上と同じ位置 */  
+  25% { margin-left: -170%; }
+  /* 2個分左の位置に進めて3個目の画像を左端にする */
+  45% { margin-left: -300%; }
+  /* 少しの間上と同じ位置 */  
+  50% { margin-left: -320%; }
+  /* 以降は上と同様に繰り返し */
+  70% { margin-left: -350%; }
+  75% { margin-left: -450%; }
+  95% { margin-left: -470%; }
+  100% { margin-left: -10%; }
+}
+/* カルーセルの子要素にスクロールアニメーションを設定 */
+.carousel > :first-child {
+  animation-name: scroll;    /* キーフレーム名 */
+  animation-duration: 20s;  /* 再生時間全体は20秒 */
+  animation-delay: 0s;      /* 読込直後から遅延無しで開始 */
+  animation-iteration-count: infinite;  /* 無限に繰り返す */
+}
+
+  /* すべてのページに適応    チームホーム */
+
+  .BACKGROUND {
+    width: 100%;
+    height: 100%;
+  }
+    
+  .hr {
+    border-top: 3px solid #ffffff;
+    width: 80%;
+    margin:0 auto
+  }
+  
+  #cards {
+    column-gap: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+
+  @media screen and (max-width: 1200px) {
+    #cards {
+      display: flex;
+      grid-template-columns: 50% 1fr;
+      gap: 5px;
+    }
+  }
+  
+  .card {
+    width: 190px;
+    height: 250px;
+    margin: 10px; /* Simplified margin */
+    border-radius: 10px;
+    border: 2px solid lightgray;
+    box-sizing: border-box;
+  }
+  
+  .picture img {
+    width: 100%;
+    height: 170px;
+    border-radius: 5px;
+  }
+  
+  .description {
+    width: 100%;
+    height: 145px;
+    padding: 0 12px;
+    box-sizing: border-box;
+  }
+  
+  .description h2 {
+    font-size: 16px; /* Adjust font size as needed */
+    color: #fff; /* Ensured consistent color */
+    text-align: center;
+  }
+  
+  
+  
+  .bg-100T {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(255, 0, 0), rgb(0, 0, 0));
+  }
+  
+  .bg-BBL {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(255, 230, 0), rgb(157, 168, 0));
+  }
+
+  .bg-C9 {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(0, 183, 255), rgb(255, 255, 255));
+    overflow: hidden
+  }
+
+  .bg-DFM {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(0, 0, 180), rgb(0, 0, 0));
+  }
+
+  .bg-DRX {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, blue, rgb(255, 255, 255));
+  }
+
+  .bg-EG {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(5, 0, 82), rgb(0, 0, 0));
+  }
+
+  .bg-FNATIC {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(255, 60, 0), rgb(0, 0, 0));
+  }
+  
+  .bg-FURIA {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(0, 0, 0), rgb(255, 255, 255));
+  }
+  
+  .bg-FUT {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(110, 0, 0), rgb(0, 0, 0));
+  }
+
+  .bg-GE {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(207, 0, 0), rgb(0, 16, 163));
+  }
+
+  .bg-GEN {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(194, 181, 0), rgb(144, 155, 0));
+  }
+
+  .bg-GIA {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(34, 34, 255), rgb(0, 0, 0));
+  }
+
+  .bg-KC {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(0, 138, 202), rgb(0, 0, 0));
+  }
+
+  .bg-KOI {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(119, 0, 255), rgb(0, 0, 0));
+  }
+
+  .bg-KRU {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(255, 0, 85), rgb(0, 0, 0));
+  }
+
+  .bg-LEV {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(0, 60, 255), rgb(0, 0, 0));
+  }
+
+  .bg-LOUD {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(0, 255, 0), rgb(0, 0, 0));
+  }
+
+  .bg-MIBR {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(63, 63, 63), rgb(0, 0, 0));
+  }
+
+  .bg-NAVI {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(251, 255, 0), rgb(0, 0, 0));
+  }
+
+  .bg-NRG {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(92, 92, 92), rgb(126, 126, 126));
+  }
+
+
+  .bg-PRX {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(234, 0, 255), rgb(25, 0, 165));
+  }
+
+  .bg-RRQ {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(165, 162, 0), rgb(182, 164, 0));
+  }
+
+  .bg-SEN {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(255, 0, 0), rgb(0, 0, 0));
+  }
+
+  .bg-T1 {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(255, 0, 0), rgb(255, 255, 255));
+  }
+
+  .bg-TALON {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(150, 0, 0), rgb(190, 0, 32));
+  }
+
+  .bg-TH {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(121, 129, 0), rgb(0, 0, 0));
+  }
+
+  .bg-TL {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(40, 0, 92), rgb(255, 255, 255));
+  }
+
+  .bg-TS {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(121, 121, 121), rgb(36, 36, 36));
+  }
+
+  .bg-TV {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(200, 255, 0), rgb(217, 255, 0));
+  }
+
+  .bg-ZETA {
+    text-align: center;
+    padding: 100px;
+    border: solid 2px;
+    background: linear-gradient(70deg, rgb(255, 255, 255), rgb(0, 0, 0));
+  }
+
+  .siro{
+    color: #ffffff;
+    font-size: 20px;
+  }
+
+  .teamname{
+    font-size: 50px;
+    color: #fff;
+  }
+
+  @media screen and (max-width: 1024px){
+    .teamname{font-size: 35px;}
+  }
+
+  /*すべてのページに適応    vct menber */
+
+  .bg-team {
+    background-color: #ffffff;
+    text-align: center; 
+  }
+
+  .vctmenber{
+    display: flex;
+  }
+
+  .vctmenber {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(5%, 1fr)); /* 10列のグリッドを作成 */
+    grid-gap: 10px; /* グリッド間の間隔 */}
+
+  @media screen and (max-width: 1024px) {
+    .vctmenber {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(19%, 1fr )); /* 10列のグリッドを作成 */
+      grid-gap: 10px; /* グリッド間の間隔 */
+    }}
+
+  @media screen and (max-width: 802px) {
+    .vctmenber {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(25%, 1fr )); /* 10列のグリッドを作成 */
+      grid-gap: 10px; /* グリッド間の間隔 */
+    }}
+
+  @media screen and (max-width: 425px) {
+  .vctmenber {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr )); /* 10列のグリッドを作成 */
+    grid-gap: 10px; /* グリッド間の間隔 */
+  }}
+
+  .vctfont{
+    color: #000;
+    padding: 10px;
+  }
+  
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 500px;
+  width: 80%;
+  z-index: 1001;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+
+table {
+  width: 50%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 18px;
+  text-align: left;
+}
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+th {
+  background-color: #f2f2f2;
+}
+
+table{
+  text-align: center;
+  border-collapse: collapse;
+  width: 60%;
+  margin: 10px auto;
+}
+
+/* スマホ用のスタイル */
+@media screen and (max-width: 600px) {
+  table#playerTable th, table#playerTable td {
+      padding: 5px;
+      font-size: 12px;
+  }
+  
+  table#playerTable {
+      width: 100%;
+      font-size: 12px;
+  }
+
+  img.laz {
+      width: 100%;
+      height: auto;
+  }
+}
