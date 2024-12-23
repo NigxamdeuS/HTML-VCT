@@ -135,3 +135,53 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+
+// テーブルソート機能
+function sortTable(columnIndex) {
+  const table = document.getElementById('playerTable');
+  const tbody = table.getElementsByTagName('tbody')[0];
+  const rows = Array.from(tbody.getElementsByTagName('tr'));
+  const headers = table.getElementsByTagName('th');
+  
+  // 現在のソート方向を判定
+  const currentHeader = headers[columnIndex];
+  const isAscending = !currentHeader.classList.contains('sort-asc');
+  
+  // すべてのヘッダーからソートクラスを削除
+  Array.from(headers).forEach(header => {
+    header.classList.remove('sort-asc', 'sort-desc');
+  });
+  
+  // 新しいソート方向を設定
+  currentHeader.classList.add(isAscending ? 'sort-asc' : 'sort-desc');
+  
+  // ソート処理
+  rows.sort((a, b) => {
+    let aValue = a.cells[columnIndex].textContent;
+    let bValue = b.cells[columnIndex].textContent;
+    
+    // 数値の場合は数値としてソート
+    if (columnIndex === 1) { // DPIの列
+      aValue = parseInt(aValue.replace('dpi', ''));
+      bValue = parseInt(bValue.replace('dpi', ''));
+    } else if (columnIndex === 2) { // Sensitivityの列
+      aValue = parseFloat(aValue);
+      bValue = parseFloat(bValue);
+    }
+    
+    if (aValue < bValue) return isAscending ? -1 : 1;
+    if (aValue > bValue) return isAscending ? 1 : -1;
+    return 0;
+  });
+  
+  // ソート結果をテーブルに反映
+  rows.forEach(row => tbody.appendChild(row));
+}
+
+// テーブルヘッダーにソートアイコンを追加
+document.addEventListener('DOMContentLoaded', function() {
+  const headers = document.querySelectorAll('#playerTable th');
+  headers.forEach(header => {
+    header.classList.add('sort-icon');
+  });
+});

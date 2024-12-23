@@ -12,8 +12,8 @@
 	margin: 0;
 	padding: 0;
 	font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ms Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	background-color: #f8f9fa;
-	color: #333;
+	background: linear-gradient(to bottom, #000000, #1a1a1a);
+	color: #ffffff;
 	padding-top: 70px;
  }
 
@@ -92,6 +92,9 @@ li {
   .loop_wrap {
     display: flex;
     overflow: hidden;
+    background: #000000;
+    padding: 20px 0;
+    margin: 40px 0;
   }
 
   .ul {
@@ -102,17 +105,23 @@ li {
   .scrollist {
     display: flex;
     list-style: none;
-    margin: 0 auto; 
+    margin: 0 auto;
+    padding: 10px 0;
   }
 
   .pic {
-    width: calc(150vw / 10);
-    margin: 20px;
-}
+    margin: 0 10px;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 10px;
+    transition: transform 0.3s ease;
+  }
 
   .pic > img {
     width: 100%;
-}
+    filter: none;
+    transition: transform 0.3s ease;
+  }
   .slide-paused:hover .ul{
     animation-play-state: paused;
   }
@@ -172,7 +181,6 @@ li {
     background-color: #0f1923;
     color: #ffffff;
     padding: 60px 0 30px;
-    margin-top: 80px;
   }
   
   .footer__inner {
@@ -338,7 +346,7 @@ li {
   overflow: hidden; /* はみ出た部分は表示しない */
   
 }
-/* カルーセル内の画�� */
+/* カルーセル内の画 */
 .carousel img {
   margin: 0;
   padding: 0;
@@ -648,12 +656,16 @@ li {
   }
 
   .teamname{
-    font-size: 50px;
+    font-size: clamp(32px, 6vw, 48px);
     color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
 
   @media screen and (max-width: 1024px){
-    .teamname{font-size: 35px;}
+    .teamname{font-size: clamp(24px, 4vw, 36px);}
   }
 
   /*すべてのページに適応    vct menber */
@@ -683,13 +695,13 @@ li {
     .vctmenber {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(25%, 1fr )); /* 10列のグリッドを作成 */
-      grid-gap: 10px; /* グリッド���の間隔 */
+      grid-gap: 10px; /* グリッド間の間隔 */
     }}
 
   @media screen and (max-width: 425px) {
   .vctmenber {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr )); /* 10列のグリッドを作�� */
+    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr )); /* 10列のグリッドを作成 */
     grid-gap: 10px; /* グリッド間の間隔 */
   }}
 
@@ -747,9 +759,7 @@ table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
-  margin: 1.5rem 0;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -768,7 +778,7 @@ th {
 /* レスポンシブデザインの改善 */
 @media screen and (max-width: 1200px) {
   .teamname {
-    font-size: 3rem;
+    font-size: clamp(24px, 4vw, 36px);
   }
 
   #cards {
@@ -1046,7 +1056,7 @@ th {
   margin: 0 auto;
 }
 
-/* 画面サイズに応じた調整 */
+/* 画面��イズに応じた調整 */
 @media screen and (max-width: 1200px) {
   .laz {
     max-height: 80vh;
@@ -1306,7 +1316,7 @@ th {
   backdrop-filter: blur(5px);
 }
 
-/* チームセクションの背景グラデーション改善 */
+/* チームセクションの背景グラデーション善 */
 .bg-100T {
   background: linear-gradient(135deg, #ff0000 0%, #000000 100%);
 }
@@ -1326,7 +1336,6 @@ th {
 .vct-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
   background: #fff;
 }
 
@@ -1387,44 +1396,41 @@ th {
 /* 画像関連のスタイル */
 .hero-section {
   width: 100%;
-  position: relative;
-  margin-bottom: 40px;
   overflow: hidden;
-  background: #fff;
+  position: relative;
 }
 
 .hero-image {
   width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7); /* 画像を少し暗く */
 }
 
 .team-logos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 20px;
   justify-items: center;
-  padding: 0 15px;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .team-logo {
-  width: 100%;
-  padding-bottom: 100%; /* アスペクト比を1:1に保つ */
-  position: relative;
-  transition: transform 0.2s ease;
+  width: 80px;
+  height: 80px;
+  transition: transform 0.3s ease;
+}
+
+.team-logo:hover {
+  transform: scale(1.1);
 }
 
 .team-logo img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain; /* アスペクト比を保ちながらフィット */
-  padding: 5px; /* ロゴの周りに少し余白を追加 */
+  object-fit: contain;
 }
 
 /* レスポンシブ対応 */
@@ -1472,7 +1478,6 @@ th {
 .vct-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
   background: #fff;
 }
 
@@ -1491,10 +1496,6 @@ th {
 
 /* レスポンシブ対応 */
 @media screen and (max-width: 768px) {
-  .hero-section {
-    margin-bottom: 20px;
-  }
-
   .vct-intro {
     margin: 20px auto;
     padding: 0 15px;
@@ -1503,5 +1504,425 @@ th {
   .vct-description {
     font-size: 14px;
     line-height: 1.6;
+  }
+}
+
+.teams-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.teams-region {
+  margin-bottom: 3rem;
+}
+
+.teams-region h3 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.teams-region h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #FF4655;
+}
+
+.team-logos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  padding: 1rem;
+}
+
+.team-logo {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  padding: 1rem;
+}
+
+.team-logo:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.team-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0.9);
+  transition: all 0.3s ease;
+}
+
+.team-logo:hover img {
+  filter: brightness(1);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 1024px) {
+  .team-logos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .team-logo {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .team-logos {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .team-logo {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-logos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .team-logo {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.teams-container {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  padding: 40px 20px;
+}
+
+.teams-region {
+  margin-bottom: 40px;
+}
+
+.teams-region h3 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: clamp(20px, 4vw, 32px); /* 最小20px、最大32px、画面幅に応じて可変 */
+}
+
+.teamname {
+  color: #ffffff;
+  text-align: center;
+  font-size: clamp(24px, 5vw, 48px); /* 最小24px、最大48px、画面幅に応じて可変 */
+  margin-bottom: 15px;
+}
+
+.siro {
+  color: #ffffff;
+  text-align: center;
+  font-size: clamp(16px, 3vw, 28px); /* 最小16px、最大28px、画面幅に応じて可変 */
+  margin-bottom: 10px;
+}
+
+/* メディアクエリを追加して、より細かい調整が可能 */
+@media screen and (max-width: 768px) {
+  .teams-region h3 {
+    margin-bottom: 15px;
+  }
+  
+  .teamname {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .teams-region h3 {
+    margin-bottom: 10px;
+  }
+  
+  .teamname {
+    margin-bottom: 8px;
+  }
+}
+
+.hero-section {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7); /* 画像を少し暗く */
+}
+
+.vct-container {
+  background: linear-gradient(to bottom, #000000, #1a1a1a);
+  padding: 60px 20px;
+  color: #ffffff;
+}
+
+.vct-intro {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.vct-intro h1 {
+  font-size: clamp(32px, 6vw, 48px);
+  margin-bottom: 30px;
+  text-align: center;
+  color: #ff4655; /* VALORANTのブランドカラー */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.vct-description {
+  font-size: clamp(16px, 3vw, 20px);
+  line-height: 1.6;
+  margin-bottom: 50px;
+  text-align: center;
+  color: #cccccc;
+}
+
+.tournament-structure {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 40px 20px;
+  margin-top: 40px;
+}
+
+.tournament-structure h2 {
+  font-size: clamp(24px, 4vw, 36px);
+  text-align: center;
+  margin-bottom: 40px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tournament-stages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.stage {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.stage:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.stage h3 {
+  font-size: clamp(18px, 3vw, 24px);
+  color: #ff4655;
+  margin-bottom: 15px;
+}
+
+.stage p {
+  font-size: clamp(14px, 2vw, 16px);
+  color: #cccccc;
+  line-height: 1.4;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+  .vct-container {
+    padding: 40px 15px;
+  }
+  
+  .tournament-structure {
+    padding: 30px 15px;
+  }
+}
+
+/* テーブルのスタイル */
+#playerTable {
+  width: 100%;
+  max-width: 1200px;
+  border-collapse: collapse;
+  background: #1a1a1a;
+  color: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#playerTable th {
+  background: #2a2a2a;
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#playerTable th:hover {
+  background: #333333;
+}
+
+#playerTable td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #333333;
+}
+
+#playerTable tr:hover {
+  background: rgba(255, 70, 85, 0.1);
+}
+
+/* ソートアイコンのスタイル */
+.sort-icon::after {
+  content: '↕️';
+  margin-left: 5px;
+  opacity: 0.5;
+}
+
+.sort-asc::after {
+  content: '↑';
+  color: #ff4655;
+  opacity: 1;
+}
+
+.sort-desc::after {
+  content: '↓';
+  color: #ff4655;
+  opacity: 1;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+  #playerTable {
+    font-size: 14px;
+  }
+  
+  #playerTable th,
+  #playerTable td {
+    padding: 10px;
+  }
+}
+
+body {
+  background: linear-gradient(to bottom, #000000, #1a1a1a);
+  color: #ffffff;
+}
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #000000;
+}
+
+.hero-container .laz {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  filter: none;
+}
+
+.loop_wrap {
+  background: #000000;
+  padding: 20px 0;
+  margin: 40px 0;
+}
+
+.pic {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 10px;
+  transition: transform 0.3s ease;
+  margin: 0 10px;
+}
+
+.pic:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.pic img {
+  filter: none;
+  transition: transform 0.3s ease;
+}
+
+.pic:hover img {
+  transform: scale(1.05);
+}
+
+.osusume {
+  color: #ff4655;
+  text-align: center;
+  font-size: clamp(24px, 4vw, 36px);
+  margin: 40px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#laz {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 40px 20px;
+  border-radius: 10px;
+}
+
+.rist {
+  gap: 20px;
+}
+
+.mainli {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.mainli:hover {
+  transform: translateY(-5px);
+}
+
+.lisrc {
+  border-radius: 4px;
+  transition: opacity 0.3s ease;
+}
+
+.mainli:hover .lisrc {
+  opacity: 0.8;
+}
+
+/* レスポンシブ対応の維持 */
+@media screen and (max-width: 768px) {
+  
+  .osusume {
+    margin: 30px 0;
+  }
+  
+  #laz {
+    padding: 20px 10px;
   }
 }
